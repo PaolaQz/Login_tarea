@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login de Paola</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    .form-container form {
+      display: none;
+    }
+    .form-container form.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <div class="form-container">
+
+      <!-- Login -->
+      <form id="login-form" class="active">
+        <h2>Login</h2>
+        <div class="input-box">
+          <span class="icon"><ion-icon name="mail"></ion-icon></span>
+          <input type="email" required />
+          <label>Email</label>
+        </div>
+        <div class="input-box">
+          <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+          <input type="password" required />
+          <label>Password</label>
+        </div>
+        <div class="remember-forgot">
+          <label><input type="checkbox" /> Remember me</label>
+          <a href="#" onclick="showForm('forgot-form')">Forgot Password?</a>
+        </div>
+        <button type="submit">Login</button>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-google"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+        <div class="register-link">
+          <p>Don't have an account? <a href="#" onclick="showForm('register-form')">Register</a></p>
+        </div>
+      </form>
+
+      <!-- Registro -->
+      <form id="register-form">
+        <h2>Register</h2>
+        <div class="input-box">
+          <span class="icon"><ion-icon name="person"></ion-icon></span>
+          <input type="text" required />
+          <label>Full Name</label>
+        </div>
+        <div class="input-box">
+          <span class="icon"><ion-icon name="mail"></ion-icon></span>
+          <input type="email" required />
+          <label>Email</label>
+        </div>
+        <div class="input-box">
+          <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+          <input type="password" required />
+          <label>Password</label>
+        </div>
+        <button type="submit">Register</button>
+        <div class="register-link">
+          <p>Already have an account? <a href="#" onclick="showForm('login-form')">Login</a></p>
+        </div>
+      </form>
+
+      <!-- Recuperar contraseña -->
+      <form id="forgot-form">
+        <h2>Forgot Password</h2>
+        <div class="input-box">
+          <span class="icon"><ion-icon name="mail"></ion-icon></span>
+          <input type="email" required />
+          <label>Email</label>
+        </div>
+        <button type="submit">Send Recovery Link</button>
+        <div class="register-link">
+          <p>Remembered it? <a href="#" onclick="showForm('login-form')">Login</a></p>
+        </div>
+      </form>
+
+      <!-- Cambiar contraseña -->
+      <form id="change-form">
+        <h2>Change Password</h2>
+        <div class="input-box">
+          <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+          <input type="password" required />
+          <label>Current Password</label>
+        </div>
+        <div class="input-box">
+          <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+          <input type="password" required />
+          <label>New Password</label>
+        </div>
+        <button type="submit">Change Password</button>
+        <div class="register-link">
+          <p>Back to <a href="#" onclick="showForm('login-form')">Login</a></p>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Ionicons y script para cambiar formularios -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    function showForm(formId) {
+      const forms = document.querySelectorAll('.form-container form');
+      forms.forEach(form => form.classList.remove('active'));
+      document.getElementById(formId).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
